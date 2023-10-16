@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -40,7 +41,7 @@ public class ProfileActivity extends MainActivity {
 
         //make back arrow clickable and visible (???)
         settingsActionBar.setDisplayHomeAsUpEnabled(true);
-        settingsActionBar.setDisplayShowHomeEnabled(true);
+//        settingsActionBar.setDisplayShowHomeEnabled(true);
 
         textViewProfileHeader = findViewById(R.id.textViewProfileHeader);
         textViewProfileInfo = findViewById(R.id.textViewProfileInfo);
@@ -99,6 +100,11 @@ public class ProfileActivity extends MainActivity {
     protected void onPause(){
         super.onPause();
         db.addAccess(new AccessModel(profileID, AccessModel.CLOSED));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        return true;
     }
 
 
